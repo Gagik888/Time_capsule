@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Time Capsule</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="app">
+        <header>
+            <h1>Time Capsule</h1>
+            <p class="tagline">Store memories & financial snapshots — open them later.</p>
+        </header>
+
+        <main>
+            <section class="creator card">
+                <h2>Create Capsule</h2>
+                <form id="capsuleForm">
+                    <label>Title
+                        <input type="text" id="title" required placeholder="My future note">
+                    </label>
+
+                    <label>Files (images & videos)
+                        <input type="file" id="files" multiple accept="image/*,video/*">
+                    </label>
+
+                    <label>Text note
+                        <textarea id="note" placeholder="Write a message to the future..."></textarea>
+                    </label>
+
+                    <label>Gmail (optional)
+                        <input type="email" id="gmail" placeholder="your.email@gmail.com">
+                    </label>
+
+                    <label>Open after
+                        <select id="duration">
+                            <option value="60000">1 minute (test)</option>
+                            <option value="2592000000">1 month</option>
+                            <option value="15552000000">6 months</option>
+                            <option value="31536000000">1 year</option>
+                            <option value="157680000000">5 years</option>
+                            <option value="315360000000">10 years</option>
+                            <option value="630720000000">20 years</option>
+                        </select>
+                    </label>
+
+                    <fieldset class="finance">
+                        <legend>Financial snapshot</legend>
+                        <label>Base currency
+                            <select id="baseCurrency">
+                                <option>EUR</option>
+                                <option>USD</option>
+                                <option>RUB</option>
+                            </select>
+                        </label>
+
+                        <label>Compare with
+                            <select id="compCurrency">
+                                <option>USD</option>
+                                <option>EUR</option>
+                                <option>RUB</option>
+                            </select>
+                        </label>
+
+                        <label>Stock symbol
+                            <input id="stockSymbol" value="AMD" />
+                        </label>
+                    </fieldset>
+
+                    <div class="actions">
+                        <button type="submit" class="btn">Create Capsule</button>
+                        <button type="button" id="clearTest" class="btn small">Delete 1-min Test</button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="list card">
+                <h2>Your Capsules</h2>
+                <div id="capsulesContainer" class="capsules"></div>
+            </section>
+        </main>
+
+        <footer>
+            <small>Local-only demo • No external frameworks</small>
+        </footer>
+    </div>
+
+    <!-- Modal for opened capsule -->
+    <div id="modal" class="modal hidden">
+        <div class="modal-content">
+            <button id="closeModal" class="close">×</button>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
